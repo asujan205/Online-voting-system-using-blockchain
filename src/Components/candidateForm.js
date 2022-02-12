@@ -19,10 +19,22 @@ const candidateForm =()=>{
                        <br />
                       <input type="text"
                       label='Candidate Adress'
-                       placeholder='Enter placeofelection' 
-                        value={placeOfelection}
-                        onChange={e => setPlace(e.target.value)}
+                       placeholder='Candidate Adress' 
+                        value={addrs}
+                        onChange={e => setCandidateAddress(e.target.value)}
                           fullWidth required/>
+                             <input type="text" 
+                      label='Candidate CitizenShip'
+                       placeholder='Enter Candidate CitizenShipNumber'
+                       value={citNum}
+                       onChange={e => setCitzenNumber(e.target.value)}
+                         fullWidth required/>
+                            <input type="text" 
+                      label='Candidate party'
+                       placeholder='Enter Candidate party name'
+                       value={party}
+                       onChange={e => setParty(e.target.value)}
+                         fullWidth required/>
                           <br/>
                           <br/>
                       <button type='submit' color='primary' variant="contained"  onClick={handleSumbit}
