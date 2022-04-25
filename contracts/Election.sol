@@ -55,6 +55,7 @@ contract Election{
         string Citizennumber;
         
         uint votecount;
+        string party;
     }
     
      uint public election_status=0;
@@ -62,7 +63,7 @@ contract Election{
      
      CandidateDetails[] public candidatelist;
 
-     /*struct Voter {
+     struct Voter {
         bool newuser;
         string photo;
         string name;
@@ -72,10 +73,10 @@ contract Election{
         bool voted;  // if true, that person already voted
         uint vote;   // index of the voted proposal
      }     
-    mapping(address => Voter) public voters;*/
+    mapping(address => Voter) public voters;
          
   
-      function addCandidate(string memory candidatename, string memory citizenno,address  Candidate_address) public {
+      function addCandidate(string memory candidatename, string memory citizenno,address  Candidate_address,string memory  partyName) public {
         // Create new Candidate Struct with name and saves it to storage.
         require(
             msg.sender == admin,
@@ -99,6 +100,7 @@ contract Election{
           addr:Candidate_address,
         
           Citizennumber:citizenno,
+          party:partyName,
           votecount:0
       });
        candidatelist.push(newcandidate);
@@ -115,7 +117,7 @@ contract Election{
          return candidatelist;
      }
      uint public votercount;
-      /* function addVoter(string  memory photo, string memory name,uint age,string memory adharno,string memory gender) public {
+      function addVoter(string  memory photo, string memory name,uint age,string memory adharno,string memory gender) public {
         // Create new Candidate Struct with name and saves it to storage.
         
         require(!voters[msg.sender].newuser,"voter already exists");
@@ -140,8 +142,8 @@ contract Election{
       function getvoter(address id) public view returns(Voter memory)
       {
       return voters[id];    
-      } */
-       /* function vote(uint proposal) public {
+      } 
+        function vote(uint proposal) public {
 
          require(voters[msg.sender].newuser,"voter is not registered");
         require(election_status==1,"election not started yet or ended");
@@ -198,9 +200,9 @@ contract Election{
             }
           }
           }
-          function winnername() public view returns(string memory,string memory,string memory)
+          function winnername() public view returns(string memory,string memory)
           {
-              return (candidatelist[winnerindex].name,candidatelist[winnerindex].party,candidatelist[winnerindex].image);
-          }*/
+              return (candidatelist[winnerindex].name,candidatelist[winnerindex].party);
+          }
  
 }

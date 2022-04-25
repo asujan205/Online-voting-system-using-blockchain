@@ -2,30 +2,38 @@ import React, { useState } from "react";
 import Web3 from "web3";
 import { ElectionAbi } from "../Election";
 const web3 = new Web3(Web3.givenProvider)
- const contractAddress = "0xD4F7944864012dcc522529b6c5d7CBD6989f9d4A"; 
+ const contractAddress = "0xd071b7e64e766c5948EE3b7947865ac63c669276"; 
  const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 const CandidateForm =()=>{
     const [ name,setCandidateName]= useState("")
     const [addrs,setCandidateAddress]= useState("")
     const [citNum,setCitzenNumber]=useState(0)
     const [ party,setParty] =useState("");
+    const [candidatelist,setCandidateList]=useState([])
     const handleSumbit= async()=>{
         const accounts = await web3.eth.getAccounts();
         const account = accounts[0];
-        const gas = await ElectionContract.methods.addCandidate(name,citNum,account).estimateGas()
-        const result = await ElectionContract.methods.addCandidate(name,citNum,account).send({from:account,gas});
-        console.log(result)
+        const gas = await ElectionContract.methods.addCandidate(name,citNum,addrs,party).estimateGas()
+        const result = await ElectionContract.methods.addCandidate(name,citNum,addrs,party).send({from:account,gas});
+        //setCandidateList(result)
 
 
     }
-    const handleGet = ()=>{
-      
+    console.log(candidatelist)
+    const handleGet =async ()=>{
+      const accounts = await web3.eth.givenProvider.enable();
+      const account = accounts[0]
+      const resutl = await ElectionContract.methods.getallcandidates().call( )
+      setCandidateList(resutl)
+      console.log(candidatelist)
+
     }
     return(<div>
         <input type="text" 
                       label='CandidateName'
                        placeholder='Enter Candidate name'
                        value={name}
+                       
                        onChange={e => setCandidateName(e.target.value)}
                          fullWidth required/>
                        <br />
@@ -54,6 +62,8 @@ const CandidateForm =()=>{
                       fullWidth >Create</button>
                       <button type='submit' color='primary' variant="contained"  onClick={handleGet}
                       fullWidth >get</button>
+                 
+                     
           </div>)
 }
 export default CandidateForm;

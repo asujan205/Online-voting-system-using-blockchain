@@ -1,4 +1,5 @@
  export const Electabi=[
+  [
     {
       "constant": true,
       "inputs": [
@@ -124,4 +125,5 @@
       "stateMutability": "view",
       "type": "function"
     }
+  ]
   ]

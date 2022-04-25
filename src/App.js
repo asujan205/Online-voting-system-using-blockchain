@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Election from './Components/CreateElection';
-import CandidateForm from './Components/candidateForm'
+import VoterCreate from './Components/registervoter';
+import Voting from './Components/voting';
+import Startstop from './Components/startstopelection';
+
 function App() {
   return (
     <div className="App">
-     <CandidateForm/>
-    </div>
+    <Voting />
+    <Startstop/>
+   </div>
   );
 }
 
