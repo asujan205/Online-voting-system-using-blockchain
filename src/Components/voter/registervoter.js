@@ -2,7 +2,7 @@ import  React, { useState } from 'react'
 import Web3 from "web3";
 import { ElectionAbi } from "../Election";
 const web3 = new Web3(Web3.givenProvider)
- const contractAddress = "0x66B8A460e7e2a472f2dBc7A2860CC9Cb7039E9e1"; 
+ const contractAddress = "0xd071b7e64e766c5948EE3b7947865ac63c669276"; 
  const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 const VoterCreate =()=>{
     const[name,setName]=useState('');

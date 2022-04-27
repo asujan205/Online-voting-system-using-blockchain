@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Web3 from "web3";
 import { ElectionAbi } from "../Election";
 import { Electabi } from "../deployElection";
@@ -7,8 +7,22 @@ const contractAddress = "0xd071b7e64e766c5948EE3b7947865ac63c669276";
 const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 const ElectionContract2= new web3.eth.Contract (Electabi, contractAddress);
 const Startstop=()=>{
-    const[started,setStarted]=useState(false);
-    const[stoped,setStooped]=useState(true);
+    const[started,setStarted]=useState();
+    const[stoped,setStooped]=useState();
+    useEffect(async()=>{
+        
+      const  isStarted =  await ElectionContract.methods.isStarted().call();
+      if(isStarted===true){
+          setStarted(true)
+          setStooped(false)
+      }
+      else{
+          setStarted(false)
+          setStooped(true)
+      }
+
+      
+    })
     const handleStart= async()=>{
       const  isStarted =  await ElectionContract.methods.isStarted().call();
       if(isStarted===true)

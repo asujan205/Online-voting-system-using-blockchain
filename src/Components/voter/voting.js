@@ -6,7 +6,7 @@ const web3 = new Web3(Web3.givenProvider)
 const contractAddress = "0xd071b7e64e766c5948EE3b7947865ac63c669276"; 
 const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 const Voting =()=>{
-    const[indexvalue,setIndexValue]=useState();
+   // const[index,setIndexValue]=useState();
     const[candidatelist,setCandidatelist]=useState([]);
     const [isStarted,setElectionstart]=useState(false);
    useEffect(async()=>{
@@ -17,7 +17,18 @@ const Voting =()=>{
      }
     setCandidatelist(list)
    },[])
-   const handleVote=()=>{
+   const handleVote=async(props)=>{
+     
+    console.log(props);
+     const  accounts = await web3.eth.getAccounts();
+    const   account =accounts[0];
+    let index=0;
+      const gas = await ElectionContract.methods.vote(props).estimateGas();
+      const giveVote = await ElectionContract.methods.vote(props).send({from:account,gas})
+ console.log(giveVote)
+
+}
+const handleIndex=()=>{
 
 }
    let output
@@ -25,9 +36,12 @@ const Voting =()=>{
       output= <div>
              
      {candidatelist.map((value,index) => (
-         <div>
-       <p>  {value.name}</p>
-       <input type="button" value="Vote" onClick={handleVote}/>
+         <div key={index}>
+             
+       <p >  {value.name}</p>
+       
+       <input type="checkbox" name="VoteCheck" required />By clicking on the vote you are responsible for everydamage done by the person in yours country<br/>
+       <input type="button"  value="Vote" onClick={()=>handleVote(index)}/>
        </div>
        
      ))}
