@@ -121,11 +121,7 @@ contract Election{
         // Create new Candidate Struct with name and saves it to storage.
         
         require(!voters[msg.sender].newuser,"voter already exists");
-                  for (uint p = 0; p <votercount ; p++) {
-           require((keccak256(abi.encodePacked((voters[msg.sender].adharno))) == keccak256(abi.encodePacked((adharno)))),"adharno is duplicate");
              
-            
-           }
         votercount++;
        Voter memory newvoter = Voter({
           name:name, 

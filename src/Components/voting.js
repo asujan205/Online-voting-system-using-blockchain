@@ -8,8 +8,14 @@ const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 const Voting =()=>{
    // const[index,setIndexValue]=useState();
     const[candidatelist,setCandidatelist]=useState([]);
+    const[isvoter,setIsvoter]=useState(false)
     const [isStarted,setElectionstart]=useState(false);
    useEffect(async()=>{
+    const accounts = await web3.eth.getAccounts();
+   const account =accounts[0]
+    const voterdetails= await ElectionContract.methods.getvoter(account).call()
+    setIsvoter(voterdetails.newuser)
+    //console.log(voterdetails.newuser)
     const list=await  ElectionContract.methods.getallcandidates().call()
      const check=await ElectionContract.methods.isStarted().call();
      if (check === true){
@@ -32,6 +38,7 @@ const handleIndex=()=>{
 
 }
    let output
+   if(isvoter ==true){
  if(isStarted===true){
       output= <div>
              
@@ -50,6 +57,12 @@ const handleIndex=()=>{
  else {
       output =<div>election not started yet</div>
  }
+   }
+   else {
+     output= <div>
+       voter is not register yet
+     </div>
+   }
       
  
 
