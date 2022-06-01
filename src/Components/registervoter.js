@@ -226,7 +226,7 @@ async function createUser(imgurl1, imgurl2) {
                       <input className="box" type="number" placeholder="Age"  onChange={e => setAge(e.target.value)} required/>
                   </div>
                   <div className="txt_field">
-                      <input className="box" type="text" placeholder="Address"  onChange={e => setAdharno(e.target.value)}required/>
+                      <input className="box" type="text" placeholder="Citizen no"  onChange={e => setAdharno(e.target.value)}required/>
                   </div>
                   
                   <div className="txt_field">
