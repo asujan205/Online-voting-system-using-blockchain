@@ -25,8 +25,11 @@ const Voting =()=>{
      const  accounts = await web3.eth.getAccounts();
     const   account =accounts[0];
     let index=0;
+    console.log(account)
       const gas = await ElectionContract.methods.vote(props).estimateGas();
       const giveVote = await ElectionContract.methods.vote(props).send({from:account,gas})
+    //   const getvoter= await ElectionContract.methods.getvoter(account).call()
+    //   console.log(getvoter)
  console.log(giveVote)
 
 }

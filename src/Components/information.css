@@ -1,0 +1,28 @@
+
+.userguide h1{
+    margin-left: 0%;
+    }
+
+.information{
+    height: auto;
+    width: 55%;
+    margin-left: 20%;
+    background-color: seashell;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-top: 5%;
+
+}
+.information li{
+    margin-left: 30px;
+    font-size: medium;
+    font-family: sans-serif;
+    padding: 5px;
+}
+.information li span{
+    font-weight: bold;
+}
+.information h3{
+    margin-left: 10px;
+    padding: 5px;
+}

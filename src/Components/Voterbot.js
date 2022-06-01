@@ -15,6 +15,7 @@ import Startstop from './startstopelection'
 import Voting from './voting'
 import Winner from './winner'
 import Verify from './verifyVoter'
+import Info from './Information'
 const VoterBot = () => {
     return (
         <Router>
@@ -75,12 +76,12 @@ const VoterBot = () => {
                 </div>
                 <div className='Container'>
                     <Routes>
-                        <Route path="/" element={<Startstop />} exact />
+                        <Route path="/" element={<Info />} exact />
 
 
                         <Route path="/registervoter" exact element={<VoterCreate />} />
 
-                        <Route path="/voting" exact element={<Verify />} />
+                        <Route path="/voting" exact element={<Voting/>} />
 
                         <Route path='/winner' exact element={<Winner />} />
 

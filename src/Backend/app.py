@@ -15,12 +15,12 @@ def api():
     test2="test"
     img1=request.json['imgurl1']
     img2=request.json['imgurl2']
-    if img1:
-        filename2="%s.jpg" % test2
-        urllib.request.urlretrieve(img1, filename2)
-    if img2:
-        filename = "%s.jpg" % test1
-        urllib.request.urlretrieve(img2, filename)
+    
+    filename2="%s.jpg" % test2
+    urllib.request.urlretrieve(img1, filename2)
+    
+    filename = "%s.jpg" % test1
+    urllib.request.urlretrieve(img2, filename)
     fact=verify.rec()
     if (fact== True):
         return  json.dumps(True)
