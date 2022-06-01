@@ -1,0 +1,48 @@
+.main{
+  display: flex;
+}
+
+.dargs {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #d4dee0;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    text-decoration: none;
+}
+
+.dash-button{
+    display: block;
+    color: rgb(27, 24, 24);
+    width: 100%;
+    height: 70px;
+    text-decoration: dotted;
+    padding: 2px;
+    border: 0;
+    font-size: medium;
+  }
+  
+  .active, .dash-button:hover{
+    background-color: #6caccc;
+    border: 1px solid #100e11;
+    color: white;
+  }
+  
+  .svg{
+    height: 30px;
+    width: 30px;
+    float:left;
+    margin-left: 5px;
+  
+
+  }
+
+  .Container{
+    margin-left: 20%;
+    margin-top: 0px;
+    text-decoration: none;
+  }
+  

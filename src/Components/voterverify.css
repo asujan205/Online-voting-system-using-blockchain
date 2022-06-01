@@ -1,0 +1,157 @@
+.video {
+    border: 1px solid rgb(36, 35, 35);
+    box-shadow: 2px 2px 3px rgb(95, 92, 92);
+    width: 320px;
+    height: 240px;
+}
+
+.camera {
+    width: 340px;
+    display: inline-block;
+}
+
+#startbutton {
+    display: block;
+    position: relative;
+    margin-top: 2px;
+    background-color: #6e8eb3;
+    border: 1px solid rgba(97, 94, 94, 0.7);
+    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#uploadbutton:hover {
+   background-color: #4a89d6;
+ }
+
+ #uploadbutton {
+    display: block;
+    position: relative;
+    margin-top: -20px;
+    margin-left: 78%;
+    background-color: #6e8eb3;
+    border: 1px solid rgba(97, 94, 94, 0.7);
+    box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#startbutton:hover {
+   background-color: #4a89d6;
+ }
+
+.contentarea {
+    font-size: 16px;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    width: 100%;
+    margin-left: 80%;
+}
+
+
+
+.Verify {
+ align-items: center;
+ appearance: button;
+ background-color: #6e8eb3;
+ border-radius: 8px;
+ border-style: none;
+ box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+ box-sizing: border-box;
+ color: #fff;
+ cursor: pointer;
+ display: flex;
+ flex-direction: row;
+ flex-shrink: 0;
+ font-family: "RM Neue",sans-serif;
+ font-size: 100%;
+ line-height: 1.15;
+ margin-top: 2%;
+ margin-left: 72%;
+ padding: 10px 21px;
+ text-align: center;
+ text-transform: none;
+ transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+}
+
+.Verify:active {
+ background-color: #006AE8;
+}
+
+.Verify:hover {
+ background-color: #4a89d6;
+}
+
+.group {
+   position: relative;
+   margin: 0;
+ }
+ 
+
+textarea {
+   resize: none;
+ }
+ 
+ input,
+ textarea {
+   background: none;
+   color: #0e0c0c;
+   font-size: 18px;
+   padding: 10px 10px 10px 5px;
+   display: block;
+   width: 310px;
+   border: none;
+   border-radius: 0;
+   border-bottom: 1px solid #110d0d;
+ }
+ input:focus,
+ textarea:focus {
+   outline: none;
+ }
+ input:focus ~ label, input:valid ~ label,
+ textarea:focus ~ label,
+ textarea:valid ~ label {
+   top: -14px;
+   font-size: 12px;
+   color: #141a1f;
+ }
+ input:focus ~ .bar:before,
+ textarea:focus ~ .bar:before {
+   width: 320px;
+ }
+ 
+ input[type=password] {
+   letter-spacing: 0.3em;
+ }
+ 
+ label {
+   color: #0a0909;
+   font-size: 16px;
+   font-weight: normal;
+   position: absolute;
+   pointer-events: none;
+   left: 5px;
+   top: 10px;
+   transition: 300ms ease all;
+ }
+ 
+ .bar {
+   position: relative;
+   display: block;
+   width: 320px;
+ }
+ .bar:before {
+   content: "";
+   height: 2px;
+   width: 0;
+   bottom: 0px;
+   position: absolute;
+   background: #13171a;
+   transition: 300ms ease all;
+   left: 0%;
+ }

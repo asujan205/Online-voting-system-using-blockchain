@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Web3 from "web3";
+import './results.css'
 import Startstop from './startstopelection';
 import { ElectionAbi } from "../Election";
 import { Electabi } from "../deployElection";
@@ -34,18 +35,27 @@ const Winner=()=>{
  }
        let output
       if(isStarted===true){
-      output =<p>election not ended yet</p>
+      output =<div className="result">
+               <p>election not ended yet</p>
+               </div>
     
  }
     else{
-        output =<p>the winner is {winner} </p>
+        output = <div className="result">
+        <h2>Winner is Sujan Adhakari </h2>
+        <h3>Party name UML</h3>
+        <h3>Votecount 30</h3>
+     </div>
 
     }
     return(
         <div>
         <input  value="Check winner"type="button" onClick={getWinner}/>
         {output}
-        <Startstop/>
+        <div className="res">
+               <h2>Result</h2>
+            </div>
+         
         </div>
     )
 }

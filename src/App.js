@@ -1,13 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+
+import VoterBot from './Components/Voterbot';
+import Adminbot from './Components/Adminbot';
 import Verify from './Components/verifyVoter';
-import VoterCreate from './Components/registervoter';
-import Voting from './Components/voting';
+const showVoter = () => {
+  if (window.location.pathname === "/") {
+    return <VoterBot/>
+  }
+}
+
+const showAdmin = () => {
+  if (window.location.pathname === "/admin") {
+    return <Adminbot />
+  }
+}
+
 function App() {
   return (
     <div className="App">
-   
-    <Voting/>
+  {showVoter()}
+      {showAdmin()} 
+      
+
    </div>
   );
 }

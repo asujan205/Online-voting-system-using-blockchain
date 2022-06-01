@@ -1,0 +1,42 @@
+<div>
+            <label>Name:</label><br/>
+            <input type="text" name="voterName"                         onChange={e => setName(e.target.value)}
+/><br/>
+            <label>age:</label><br/>
+            <input type="text" name="voterAge"                         onChange={e => setAge(e.target.value)}
+/><br/>
+            <label >citizNo:</label><br/>
+            <input type="text" name="voterCitizen"                        onChange={e => setCitizenNo(e.target.value)}
+ /><br/>
+            <label>gender</label><br/>
+            <input type="text" name="Gender"                        onChange={e => setGender(e.target.value)}
+/><br/>
+            <label>Photo</label><br/>
+            <Webcam
+        audio={false}
+        height={100}
+        screenshotFormat="image/jpeg"
+        width={100}
+        videoConstraints={videoConstraints}
+      >
+          
+        {({ getScreenshot }) => (
+          <button
+            onClick={() => {
+              const imageSrc = getScreenshot()
+            
+            }}
+
+          >
+          
+            Capture photo
+          </button>
+        )}
+      </Webcam>
+   
+            <br/>
+            <input type="button" value="createvoter" onClick={handleSumbit}/>
+
+
+
+        </div>

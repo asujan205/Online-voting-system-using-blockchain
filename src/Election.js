@@ -1,4 +1,4 @@
-export const ElectionAbi=
+ export const ElectionAbi=
 	
 	
 		[
@@ -450,3 +450,4 @@ export const ElectionAbi=
 			  "signature": "0x497487f5"
 			}
 		  ]
+		 

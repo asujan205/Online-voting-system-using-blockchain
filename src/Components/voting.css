@@ -1,0 +1,54 @@
+.container1 {
+  position: absolute;
+  height: 68px;
+  width: 80%;
+  text-align: center;
+  border: 1px solid #100e11;
+  background-color: #6caccc;
+  margin-top: 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin-top: 5px;
+  background-color: none;
+}
+
+.flex-container>div {
+  background-color: #b8d2e0;
+  position: relative;
+  width: 25%;
+  margin: 4%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.vote-button {
+  position: relative;
+  width: 90%;
+  height: 40px;
+  align-self: center;
+  background-color: #66abe4e7;
+  border-radius: 9px;
+}
+
+.Notstarted {
+  position: absolute;
+  text-align: center;
+  padding: 20px;
+  top: 20%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 50px;
+  background: rgb(106, 174, 219);
+  box-shadow: 5px 10px 10px #36503f;
+}

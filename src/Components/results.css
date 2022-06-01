@@ -1,0 +1,33 @@
+
+.res{
+    padding: 10px; 
+    background: #82c2e8;
+    color: #16232b;
+    height: 50px;
+    text-align: center;
+    margin-top: 0;
+    box-shadow: 5px 10px 10px #36503f;
+    margin-left: 0;
+    width: 1250px;
+    
+
+}
+h3{
+    text-align: center;
+    
+}
+h2{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.result{
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: rgb(224, 219, 219);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  }
