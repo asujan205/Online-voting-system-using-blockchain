@@ -5,7 +5,7 @@ const Welcome=()=>{
     <h1>Admin pannel</h1>
     <div class="information">
         
-      Accessible only for admin Account
+     <h3> Accessible only for admin Account</h3>
 
     </div>
 </div>)

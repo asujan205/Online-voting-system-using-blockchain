@@ -14,6 +14,7 @@ import {
 import Startstop from './startstopelection'
 import CandidateForm from './CandidateForm'
 
+import Welcome from './WelcomeAdmin'
 const Adminbot=()=>{
 
     return(  
@@ -23,7 +24,7 @@ const Adminbot=()=>{
     <div className="dargs">
       
     
-        <Link to='/'>
+        <Link to='/admin'>
         <div className="information" style={{ textDecoration: 'none' }}>
             <button className="dash-button">
             <span className="svgs">
@@ -62,7 +63,7 @@ const Adminbot=()=>{
     </div>
     <div className='Container'>
       <Routes>
-     <Route path="/" exact/>
+     <Route path="/admin"  exact element={<Welcome/>}/>
         
   
         <Route path="/AddCandidate" exact element={<CandidateForm/>}/>

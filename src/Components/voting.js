@@ -27,10 +27,25 @@ const Voting =()=>{
     let index=0;
     console.log(account)
       const gas = await ElectionContract.methods.vote(props).estimateGas();
-      const giveVote = await ElectionContract.methods.vote(props).send({from:account,gas})
+      
     //   const getvoter= await ElectionContract.methods.getvoter(account).call()
     //   console.log(getvoter)
- console.log(giveVote)
+
+ try{
+     const giveVote = await ElectionContract.methods.vote(props).send({from:account,gas})
+    console.log("done")
+    console.log(giveVote)
+}
+catch(err){
+    var errorMessageInJson = JSON.parse(
+         err.message.slice(58, err.message.length - 2)
+      );
+
+    var errorMessageToShow = errorMessageInJson.data.data[Object.keys(errorMessageInJson.data.data)[0]].reason;
+
+      alert(errorMessageToShow);
+      return; 
+}
 
 }
 const handleIndex=()=>{
