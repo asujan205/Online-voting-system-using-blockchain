@@ -121,7 +121,9 @@ contract Election{
         // Create new Candidate Struct with name and saves it to storage.
         
         require(!voters[msg.sender].newuser,"voter already exists");
-             
+            //  for(uint256 i=0;i<voters.length;i++){
+            //      require()
+            //  }
         votercount++;
        Voter memory newvoter = Voter({
           name:name, 

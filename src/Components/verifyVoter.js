@@ -13,10 +13,10 @@ import { ElectionAbi } from "../Election";
 import Voting from './voting';
 import { render } from '@testing-library/react';
 const web3 = new Web3(Web3.givenProvider)
- const contractAddress = "0xc33e33D09b540e00D4B4126e92314eeBD676FE38"; 
+ const contractAddress = "0x878da272091Ca8340f08f7AE6Fe2d6a224158dDa"; 
  const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 async function createUser(imgurl1, imgurl2) {
-        const response = await fetch('http://localhost:5000/detect', {
+        const response = await fetch('http://localhost:5000/verify', {
           method: 'POST',
           body: JSON.stringify({ imgurl1, imgurl2 }),
           headers: {
@@ -40,8 +40,10 @@ const Verify=()=>{
     const [istrue,setIstrue]=useState(null)
     const[check,setCheck]=useState(null)
     const[isvoted,setVoted]=useState()
+    const[citizenship,setCitzenNumber]=useState()
     const capture=useCallback(async()=>{
-        const imageSrc = webcamRef.current.getScreenshot();const base64 = await fetch(imageSrc);
+        const imageSrc = webcamRef.current.getScreenshot();
+        const base64 = await fetch(imageSrc);
 
         const blob = await base64.blob();
         setScreenshot(imageSrc);
@@ -82,20 +84,32 @@ const Verify=()=>{
 try{
   
 const accounts = await web3.eth.getAccounts();
-console.log(accounts[0]);
+
 
 const voter =await ElectionContract.methods.getvoter(accounts[0]).call();
+console.log(voter)
 const isvoted=voter.voted;
+const citizenship_no=voter.adharno;
 setVoted(isvoted)
 
-const imgurl1=`https://ipfs.io/ipfs/${voter.photo}`;
+const imgurl1=voter.photo;
+console.log(voter.photo)
  setCheck(imgurl1)
 
-const imgurl2=`https://ipfs.io/ipfs/${photo}`;
+//const imgurl2=`https://ipfs.io/ipfs/${photo}`;
+if(citizenship_no===citizenship){
 
-
-const result = await createUser(imgurl1,imgurl2);
+const result = await createUser(imgurl1,screenshot);
 setIstrue(result)
+}
+else{
+  alert('you are trying to be someone else')
+  setIstrue(false)
+}
+
+
+ 
+
  
 // if(result===true)
 // {
@@ -153,10 +167,10 @@ console.log(err);
                         </div>
                         <button id="startbutton" onClick={capture}>Take photo</button>
                         <img src={screenshot}/>
-                        <button id="uploadbutton" onClick={storeinipfs}>upload</button>
+                        {/* <button id="uploadbutton" onClick={storeinipfs}>upload</button> */}
                 </div>
                 <div className="group">
-                        <input type="text" required="required" /><span className="highlight"></span><span
+                        <input type="text" required="required"  onChange={e => setCitzenNumber(e.target.value)} /><span className="highlight"></span><span
                                 className="bar"></span>
                         <label>Enter your citizenship number</label>
                 </div>

@@ -6,7 +6,7 @@ import './Registration.css'
 import img from './register.svg';
 import ipfs from './ipfs.js'
 const web3 = new Web3(Web3.givenProvider)
- const contractAddress = "0xc33e33D09b540e00D4B4126e92314eeBD676FE38"; 
+ const contractAddress = "0x878da272091Ca8340f08f7AE6Fe2d6a224158dDa"; 
  const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 // const VoterCreate =()=>{
 //     const[name,setName]=useState('');
@@ -84,45 +84,45 @@ async function createUser(imgurl1, imgurl2) {
             
             console.log(imageSrc)
   
-  const base64 = await fetch(imageSrc);
+  //const base64 = await fetch(imageSrc);
     
-           const blob = await base64.blob();
+          // const blob = await base64.blob();
            setScreenshot(imageSrc);
-           console.log(imageSrc)
-            let reader = new window.FileReader()
-   reader.readAsArrayBuffer(blob)
-   reader.onloadend = () => convertToBuffer(reader)
-            console.log(screenshot);
+          //  console.log(imageSrc)
+          //   let reader = new window.FileReader()
+  //  reader.readAsArrayBuffer(blob)
+  //  reader.onloadend = () => convertToBuffer(reader)
+  //           console.log(screenshot);
            
           },
           [webcamRef]
         );
         
-         async function storeinipfs()
-         {
-           try{
+        //  async function storeinipfs()
+        //  {
+        //    try{
          
           
             
-            let results = await ipfs.add(buffer);
-            let ipfsHash = results[0].hash;
-             setPhoto(ipfsHash);
-            console.log(ipfsHash);
+        //     let results = await ipfs.add(buffer);
+        //     let ipfsHash = results[0].hash;
+        //      setPhoto(ipfsHash);
+        //     console.log(ipfsHash);
       
-           }
-          catch(err){
-           console.log(err);
+        //    }
+        //   catch(err){
+        //    console.log(err);
          
-           }
-        }
+        //    }
+        // }
         
-        const convertToBuffer = async(reader) => {
-        // //   //file is converted to a buffer for upload to IPFS
-             const buffer = await Buffer.from(reader.result);
-        // //   //set this buffer -using es6 syntax
-          setBuffer(buffer);
-           console.log(buffer);
-          };
+        // const convertToBuffer = async(reader) => {
+        // // //   //file is converted to a buffer for upload to IPFS
+        //      const buffer = await Buffer.from(reader.result);
+        // // //   //set this buffer -using es6 syntax
+        //   setBuffer(buffer);
+        //    console.log(buffer);
+        //   };
          
      
           
@@ -142,10 +142,10 @@ async function createUser(imgurl1, imgurl2) {
                 {
                    console.log("age verified");
                    const imgurl1=jsonParsed[i].image;
-         
-                    const imgurl2=`https://ipfs.io/ipfs/${photo}`;
+                  setPhoto(imgurl1)
+                    console.log(photo)
         
-                       const result = await createUser(imgurl1,imgurl2);
+                       const result = await createUser(imgurl1,screenshot);
                         console.log(result);
                       if(result===true)
                           {
@@ -171,6 +171,7 @@ async function createUser(imgurl1, imgurl2) {
       }
      
     }
+    console.log(photo)
     if(authenticated==1)
         {
    
@@ -246,7 +247,7 @@ async function createUser(imgurl1, imgurl2) {
         videoConstraints={videoConstraints}/><br/>
               <span className="Picbutton">
                   <button className="buttn" onClick={capture}>Take</button>
-                  <button className="buttn" onClick={storeinipfs}>Upload</button>
+                  {/* <button className="buttn" onClick={storeinipfs}>Upload</button> */}
               </span>
               <img src={screenshot}/>
           </div>

@@ -6,13 +6,13 @@ import io
 import base64
 import cv2
 # import ipfs
-class Rec1():
+class Rec():
     def __init__(self, known,unkown):
         self.known = known
         self.unkown= unkown
 
     def rec(self):
-        imgload= face_recognition.load_image_file(f'./RegistredImages/{self.known}')
+        imgload= face_recognition.load_image_file(f'./images/{self.known}')
         imgload=cv2.cvtColor(imgload,cv2.COLOR_BGR2RGB)
         imgloadtest= face_recognition.load_image_file(self.unkown)
         imgloadtest=cv2.cvtColor(imgloadtest,cv2.COLOR_BGR2RGB)
@@ -29,3 +29,5 @@ class Rec1():
                 return True
         else:
                 return False
+# face=FaceRec('https://ipfs.io/ipfs/QmYsxRRWTShwDTr1dKTaE4XaqYbcZxg9Kpkwz7mn2SrWti','https://ipfs.io/ipfs/QmbZdKoeJmyHS9hbqBwaFydM3J7WaahnfBTV1VTj5sAGW6')
+
