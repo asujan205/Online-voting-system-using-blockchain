@@ -2,8 +2,8 @@
 .voter{
     position: absolute;
     background-color: rgb(250, 252, 250);
-    height: 600px;
-    width: 500px;
+    height: 70%;
+    width: 30%;
     left: 50%;
     top: 5%;
     border-radius: 10px;
@@ -11,9 +11,9 @@
 }
 .image{
     position: absolute;
-    left: 45%;
-    height: 70px;
-    width: 70px;
+    left:45%;
+    height: 10%;
+    width: 10%;
     
 }
 h3{
@@ -39,8 +39,8 @@ h3{
   }
   .box{
       border-style: hidden hidden solid hidden;
-      width: 300px;
-      height: 40px;
+      width: 30%;
+      height: 4%;
       border-radius: 5px;
   }
     ::placeholder{
@@ -51,13 +51,13 @@ h3{
   
   .radios{
       margin-top: -10px;
-      margin-left: 0;
+      margin-left: 60%;
   }
   input[type="submit"]{
       margin-top: 15px;
     margin-left: 0;
     width: 60%;
-    height: 50px;
+    height: 10;
     border: 1px solid;
     background: #468fc0;
     border-radius: 25px;
@@ -67,20 +67,7 @@ h3{
     cursor: pointer;
     outline: none;
   }
-  .upload{
-      height: 500px;
-      width: 400px;
-      
-      margin-top: 5%;
-      margin-left: 5%;
-      border-radius: 5px;
-
-  }
-  .imageup{
-        height: 200px;
-        width: 200px;
-
-  }
+  
   .upload h1{
       text-align: center;
   }
@@ -92,16 +79,16 @@ h3{
       padding-top: 50px;
   }
  .buttn{
-     width: 150px;
-     height: 40px;
+     width: 30%;
+     height: 10%;
      background-color: dodgerblue;
      border-radius: 25px;
      border: none;
      font-size: medium;
-     margin: 20px;
+     margin: 20%;
 
  }
- @media screen and (max-width: 800px) {
+ @media screen and (min-width: 500px) {
     .buttn, .Picbutton, .imageup,.upload,input,:-ms-input-placeholder,.field,.txt_field,.voter {
       width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
     }

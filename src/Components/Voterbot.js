@@ -81,7 +81,7 @@ const VoterBot = () => {
 
                         <Route path="/registervoter" exact element={<VoterCreate />} />
 
-                        <Route path="/voting" exact element={<Verify/>} />
+                        <Route path="/voting" exact element={<Voting/>} />
 
                         <Route path='/winner' exact element={<Winner />} />
 

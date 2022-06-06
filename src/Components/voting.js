@@ -5,7 +5,7 @@ import './voting.css'
 import { ElectionAbi } from "../Election";
 import { Electabi } from "../deployElection";
 const web3 = new Web3(Web3.givenProvider)
-const contractAddress = "0x878da272091Ca8340f08f7AE6Fe2d6a224158dDa"; 
+const contractAddress = "0x5221d12e1796CC4eec3418073E4790CFE637b3AE"; 
 const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 const Voting =()=>{
    // const[index,setIndexValue]=useState();

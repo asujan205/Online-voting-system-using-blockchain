@@ -6,7 +6,7 @@ import './Registration.css'
 import img from './register.svg';
 import ipfs from './ipfs.js'
 const web3 = new Web3(Web3.givenProvider)
- const contractAddress = "0x878da272091Ca8340f08f7AE6Fe2d6a224158dDa"; 
+ const contractAddress = "0x5221d12e1796CC4eec3418073E4790CFE637b3AE"; 
  const ElectionContract = new web3.eth.Contract (ElectionAbi, contractAddress);
 // const VoterCreate =()=>{
 //     const[name,setName]=useState('');
@@ -41,7 +41,9 @@ const web3 = new Web3(Web3.givenProvider)
 
 //     }
 async function createUser(imgurl1, imgurl2) {
+  
     const response = await fetch('http://localhost:5000/detect', {
+
       method: 'POST',
       body: JSON.stringify({ imgurl1, imgurl2 }),
       headers: {
@@ -73,7 +75,7 @@ async function createUser(imgurl1, imgurl2) {
       const [gender, setGender] = React.useState('');
       
       const [photo, setPhoto] = useState('');
-    
+      
     
     
   
@@ -124,7 +126,9 @@ async function createUser(imgurl1, imgurl2) {
         //    console.log(buffer);
         //   };
          
-     
+    //  const createphoto=(props)=>{
+    //    setPhoto(props)
+    //  }
           
   async function submit()
   {
@@ -133,6 +137,7 @@ async function createUser(imgurl1, imgurl2) {
   
     const jsonParsed = require("./citz.json");
     let authenticated=0;
+   
     for(let i=0;i<9;i++)
     {
         if(jsonParsed[i].citizen_no==citizen_no)
@@ -141,9 +146,12 @@ async function createUser(imgurl1, imgurl2) {
               if(jsonParsed[i].age>=18 && jsonParsed[i].age===age)
                 {
                    console.log("age verified");
-                   const imgurl1=jsonParsed[i].image;
-                  setPhoto(imgurl1)
+                const   imgurl1=jsonParsed[i].image;
+                  console.log(imgurl1)
+                  //  console.log(photo)
+                    setPhoto(imgurl1)
                     console.log(photo)
+                  // createphoto(imgurl1)
         
                        const result = await createUser(imgurl1,screenshot);
                         console.log(result);
@@ -169,11 +177,14 @@ async function createUser(imgurl1, imgurl2) {
                       break;
                     }
       }
+      //setPhoto(imgurl1)
+      
      
     }
     console.log(photo)
     if(authenticated==1)
         {
+          console.log("done")
    
           const accounts = await web3.eth.getAccounts();
  
